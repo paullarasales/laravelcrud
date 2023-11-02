@@ -20,10 +20,10 @@
      </style>
 </head>
 <body>
-    
+
 <div class="container">
     <h2>Edit Student</h2>
-    <form method="POST" action="{{ route('students.update', ['id' => $student->id]) }}">
+    <form method="POST" action="{{ route('students.update', $student->id) }}">
         @csrf
         @method('PUT')
 

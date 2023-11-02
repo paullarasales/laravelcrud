@@ -40,16 +40,16 @@
                 <td>{{$student->gender}}</td>
                 <td>{{$student->course}}</td>
                 <td>
-                    <form action="{{route('students.destroy', ['id' => $student->id])}}" method="POST">
+                    <form action="{{route('students.destroy', $student->id)}}" method="POST">
                         @csrf
                         @method("DELETE")
                         <button type="submit">Delete</button>
                     </form>
                 </td>
                 <td>
-                    <a href="{{route('students.edit', ['id' => $student->id])}}">Update</a>
+                    <a href="{{route('students.edit', $student->id)}}">Update</a>
                 </td>
-                
+
             </tr>
         @endforeach
     </table>

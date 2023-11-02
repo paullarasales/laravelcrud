@@ -23,33 +23,31 @@
 
 <div class="container">
     <h2>Edit Student</h2>
-    <form method="POST" action="{{ route('students.add') }}">
+    <form method="POST" action="{{ route('students.store') }}">
         @csrf
-        @method('POST')
-
         <div class="form-group">
             <label for="firstname">First Name</label>
-            <input type="text" name="firstname" id="firstname">
+            <input type="text" name="firstname" id="firstname" required >
         </div>
 
         <div class="form-group">
             <label for="middlename">Middle Name</label>
-            <input type="text" name="middlename" id="middlename">
+            <input type="text" name="middlename" id="middlename" required>
         </div>
 
         <div class="form-group">
             <label for="lastname">Last Name</label>
-            <input type="text" name="lastname" id="lastname">
+            <input type="text" name="lastname" id="lastname" required>
         </div>
 
         <div class="form-group">
             <label for="gender">Gender</label>
-            <input type="text" name="gender" id="gender">
+            <input type="text" name="gender" id="gender" required>
         </div>
 
         <div class="form-group">
             <label for="course">Course</label>
-            <input type="text" name="course" id="course">
+            <input type="text" name="course" id="course" required>
         </div>
 
         <button type="submit" class="btn btn-primary">Add Student</button>
