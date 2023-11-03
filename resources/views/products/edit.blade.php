@@ -22,25 +22,27 @@
 <body>
 
 <div class="container">
-    <h2>Add Product</h2>
-    <form method="POST" action="{{ route('products.store') }}">
+    <h2>Edit Student</h2>
+    <form method="POST" action="{{ route('products.update', $product->id) }}">
         @csrf
+        @method('PUT')
+
         <div class="form-group">
             <label for="productname">Product Name</label>
-            <input type="text" name="productname" id="productname" required >
+            <input type="text" name="productname" id="productname" value="{{ $product->productname }}">
         </div>
 
         <div class="form-group">
             <label for="price">Price</label>
-            <input type="text" name="price" id="price" required>
+            <input type="text" name="price" id="price" value="{{ $product->price }}">
         </div>
 
         <div class="form-group">
             <label for="quantity">Quantity</label>
-            <input type="text" name="quantity" id="quantity" required>
+            <input type="text" name="quantity" id="quantity" value="{{ $product->quantity }}">
         </div>
 
-        <button type="submit" class="btn btn-primary">Add Product</button>
+        <button type="submit" class="btn btn-primary">Update</button>
     </form>
 </div>
 

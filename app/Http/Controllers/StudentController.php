@@ -16,13 +16,6 @@ class StudentController extends Controller
         return view('students.index', compact('students'));
     }
 
-    public function create() {
-        return view('students.add');
-    }
-
-    public function show(){
-
-    }
     public function redirect() {
         return view('students.add');
     }

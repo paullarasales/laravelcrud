@@ -10,31 +10,42 @@ use App\Models\Product;
 class ProductController extends Controller
 {
     public function index() {
-        $products = DB::select("select * from products");
+        $products = Product::all();
 
-        return view('products.index', ['products' => $products]);
+        return view('products.index', compact('products'));
     }
 
 
-    public function create() {
+    public function redirect() {
         return view('products.add');
     }
 
 
-    public function add(Request $request){
-        $productname = $request->input('productname');
-        $price = $request->input('price');
-        $quantity = $request->input('quantity');
+    public function store(Request $request){
+       Product::create($request->all());
+       return redirect()->route('products.index');
+    }
 
-        DB::insert('insert into products (productname, price, quantity) values (?, ?, ?)', [$productname, $price, $quantity]);
+    public function destroy($id) {
+        
+        $product = Product::findOrFail($id);
+        $product->delete();
 
         return redirect()->route('products.index');
     }
 
-    public function delete($id) {
-        DB::table('products')->where('id', $id)->delete();
+    public function edit($id) {
+        $product = DB::table('products')->find($id);
 
-        return redirect()->route('products.index');
+        return view('products.edit', compact('product'));
+    }
+
+    public function update(Request $request, $id) {
+        
+        $product = Product::findOrFail($id);
+        $product->update($request->all());
+        return redirect()->route('products.index')
+        ->with('success', 'Product update successfully');
     }
     
 }

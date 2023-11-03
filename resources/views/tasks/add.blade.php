@@ -26,21 +26,17 @@
     <form method="POST" action="{{ route('products.store') }}">
         @csrf
         <div class="form-group">
-            <label for="productname">Product Name</label>
-            <input type="text" name="productname" id="productname" required >
+            <label for="taskname">Task</label>
+            <input type="text" name="taskname" id="taskname" required >
         </div>
 
         <div class="form-group">
-            <label for="price">Price</label>
-            <input type="text" name="price" id="price" required>
+            <label fo="description">Description</label>
+            <input type="text" name="description" id="description" required>
         </div>
 
-        <div class="form-group">
-            <label for="quantity">Quantity</label>
-            <input type="text" name="quantity" id="quantity" required>
-        </div>
 
-        <button type="submit" class="btn btn-primary">Add Product</button>
+        <button type="submit" class="btn btn-primary">Add Task</button>
     </form>
 </div>
 

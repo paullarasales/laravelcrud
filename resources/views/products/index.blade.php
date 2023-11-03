@@ -26,6 +26,7 @@
             <th>Price</th>
             <th>Quantity</th>
             <th>Delete</th>
+            <th>Update</th>
         </tr>
         @foreach($products as $product)
             <tr>
@@ -33,11 +34,14 @@
                 <td>{{$product->price}}</td>
                 <td>{{$product->quantity}}</td>
                 <td>
-                    <form method="POST" action="{{ route('products.delete', ['id' => $product->id])}}">
+                    <form method="POST" action="{{ route('products.destroy', $product->id)}}">
                         @csrf
                         @method("DELETE")
                         <button type="submit">Delete</button>
                     </form>
+                </td>
+                <td>
+                    <a href="{{ route('products.edit', $product->id) }}">Update</a>
                 </td>
             </tr>
         @endforeach
